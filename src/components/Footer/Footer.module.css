@@ -1,0 +1,47 @@
+.footer {
+  padding: 2rem;
+  border-top: 1px solid rgba(95, 46, 27, 0.15);
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.socialLink {
+  color: var(--text-muted, #787878);
+  font-size: 1.2rem;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  color: #8b4513;
+}
+
+.copyright {
+  color: var(--text-muted, #787878);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.madeWith {
+  color: var(--text-muted, #787878);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.heart {
+  color: #e74c3c;
+}

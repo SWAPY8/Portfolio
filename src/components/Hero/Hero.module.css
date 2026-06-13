@@ -1,0 +1,368 @@
+/* ============================================
+   Hero – Dark-Luxury Two-Column
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--nav-height, 70px);
+}
+
+/* ---- Grid Container ---- */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/* ============================================
+   Left Column – Content
+   ============================================ */
+
+.content {
+  z-index: 2;
+}
+
+.greeting {
+  color: var(--accent, #5F2E1B);
+  font-size: var(--fs-md, 1rem);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.name {
+  font-family: var(--font-display, 'Inter', sans-serif);
+  font-size: var(--fs-hero, clamp(2.4rem, 5vw, 4rem));
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--text-primary, #ffffff);
+}
+
+.name .highlight {
+  color: var(--accent, #5F2E1B);
+  display: inline-block;
+  padding-left: 90px;
+}
+
+/* ---- Typing Effect ---- */
+.typingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  min-height: 2.5rem;
+}
+
+.typingText {
+  font-size: var(--fs-xl, 1.35rem);
+  font-weight: 600;
+  color: var(--text-secondary, #bdbdbd);
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.5em;
+  background: var(--accent, #5F2E1B);
+  margin-left: 4px;
+  border-radius: 1px;
+  animation: typing-cursor 1s step-end infinite;
+}
+
+@keyframes typing-cursor {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ---- Description ---- */
+.description {
+  color: var(--text-secondary, #bdbdbd);
+  font-size: var(--fs-base, 1rem);
+  max-width: 500px;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+/* ---- CTA Buttons ---- */
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2rem;
+  border-radius: var(--border-radius-xl, 50px);
+  font-weight: 600;
+  font-size: var(--fs-sm, 0.875rem);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.btnPrimary {
+  background: var(--gradient-accent, linear-gradient(135deg, #5F2E1B, #8B4513));
+  color: #ffffff;
+  border: none;
+  box-shadow: var(--shadow-accent, 0 4px 20px rgba(95, 46, 27, 0.35));
+}
+
+.btnPrimary:hover {
+  box-shadow: 0 6px 28px rgba(95, 46, 27, 0.55);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--text-primary, #ffffff);
+  border: 2px solid var(--accent, #5F2E1B);
+}
+
+.btnSecondary:hover {
+  background: rgba(95, 46, 27, 0.1);
+}
+
+/* ============================================
+   Right Column – Hero Visual
+   ============================================ */
+
+.heroVisual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImageWrapper {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: var(--gradient-card, linear-gradient(135deg, #1a1a19, #141413));
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--card-border, rgba(95, 46, 27, 0.2));
+  z-index: 1;
+}
+
+.heroImagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  background: linear-gradient(135deg, var(--secondary-accent, #3a1f12), var(--card-bg, #141413));
+  user-select: none;
+}
+
+/* ---- Glow ---- */
+.heroGlow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: var(--accent-glow, rgba(95, 46, 27, 0.2));
+  filter: blur(80px);
+  z-index: -1;
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.1); }
+}
+
+/* ---- Floating Decorative Elements ---- */
+.floatingElement {
+  position: absolute;
+  border-radius: var(--border-radius-sm, 4px);
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.float1 {
+  width: 14px;
+  height: 14px;
+  background: rgba(95, 46, 27, 0.7);
+  top: 10%;
+  right: 8%;
+  border-radius: 50%;
+  animation-delay: 0s;
+}
+
+.float2 {
+  width: 10px;
+  height: 10px;
+  background: rgba(139, 69, 19, 0.5);
+  bottom: 18%;
+  left: 6%;
+  animation-delay: 1.5s;
+}
+
+.float3 {
+  width: 18px;
+  height: 18px;
+  background: rgba(95, 46, 27, 0.4);
+  top: 60%;
+  right: 2%;
+  border-radius: 50%;
+  animation-delay: 3s;
+}
+
+.float4 {
+  width: 12px;
+  height: 12px;
+  background: rgba(139, 69, 19, 0.55);
+  top: 5%;
+  left: 20%;
+  border-radius: 2px;
+  animation-delay: 4.2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%      { transform: translateY(-18px) rotate(6deg); }
+  66%      { transform: translateY(10px) rotate(-4deg); }
+}
+
+/* ============================================
+   Scroll Indicator
+   ============================================ */
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: scroll-indicator 2s ease-in-out infinite;
+}
+
+.scrollLine {
+  display: block;
+  width: 2px;
+  height: 30px;
+  background: var(--accent, #5F2E1B);
+  border-radius: 2px;
+}
+
+.scrollText {
+  color: var(--text-secondary, #bdbdbd);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+@keyframes scroll-indicator {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50%      { transform: translateX(-50%) translateY(12px); opacity: 0.4; }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .heroVisual {
+    order: -1;
+  }
+
+  .heroImageWrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .heroGlow {
+    width: 320px;
+    height: 320px;
+  }
+
+  .heroImagePlaceholder {
+    font-size: 3.5rem;
+  }
+
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ctaButtons {
+    justify-content: center;
+  }
+
+  .name {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .typingText {
+    font-size: 1.1rem;
+  }
+
+  .typingWrapper {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .hero {
+    padding-top: calc(var(--nav-height, 70px) + 1rem);
+  }
+
+  .container {
+    padding: 0 1.25rem;
+    gap: 2rem;
+  }
+
+  .heroImageWrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .heroGlow {
+    width: 240px;
+    height: 240px;
+  }
+
+  .heroImagePlaceholder {
+    font-size: 2.5rem;
+  }
+
+  .name {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .scrollIndicator {
+    bottom: 1rem;
+  }
+}
