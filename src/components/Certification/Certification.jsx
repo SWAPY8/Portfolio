@@ -47,17 +47,7 @@ const certifications = [
     skills: ['Data Visualization', 'Power BI', 'Tableau', 'Business Intelligence'],
     link: tataCert,
   },
-  {
-    id: 4,
-    title: 'Web Development Certificate',
-    issuer: 'CodSoft',
-    date: '2024',
-    credentialId: 'CODSOFT-WD-004',
-    description:
-      'Certification in web development covering HTML, CSS, JavaScript, responsive design and building interactive web applications.',
-    skills: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
-    link: codsoftCert,
-  },
+  
   {
     id: 5,
     title: 'Cybersecurity Certification',
@@ -69,28 +59,7 @@ const certifications = [
     skills: ['Cybersecurity', 'Network Security', 'Threat Analysis', 'Vulnerability Assessment'],
     link: cyberSecCert,
   },
-  {
-    id: 6,
-    title: 'Data Analytics Certificate',
-    issuer: 'NeuAI Labs',
-    date: '2025',
-    credentialId: 'NEUAI-DA-006',
-    description:
-      'Certification in data analytics covering Python, EDA, data visualization and deriving insights from real-world datasets.',
-    skills: ['Python', 'Pandas', 'EDA', 'Data Analytics'],
-    link: neuaiCert,
-  },
-  {
-    id: 7,
-    title: 'Business Development Certificate',
-    issuer: 'WillPower Group',
-    date: '2023',
-    credentialId: 'WPG-BD-007',
-    description:
-      'Certification in business development covering professional communication, digital marketing, networking and stakeholder engagement.',
-    skills: ['Business Development', 'Marketing', 'Communication', 'Networking'],
-    link: willpowerCert,
-  },
+  
   {
     id: 8,
     title: 'JK Infotech Certificate',
