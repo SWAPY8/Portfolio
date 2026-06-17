@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeader from "../SectionHeader/SectionHeader";
-import ownerImg from "../../assets/owners_img.png";
+import ownerImg from "../../assets/owners_img.jpeg";
 import styles from "./About.module.css";
 
 const personalDetails = [
