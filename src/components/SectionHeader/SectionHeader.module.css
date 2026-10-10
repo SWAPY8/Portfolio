@@ -25,7 +25,7 @@
   transform: translate(-50%, -50%);
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.03);
+  color: var(--watermark-color);
   pointer-events: none;
   white-space: nowrap;
   z-index: -1;
@@ -35,13 +35,14 @@
 .line {
   width: 60px;
   height: 3px;
-  background: linear-gradient(135deg, #5f2e1b, #8b4513);
+  background: var(--gradient-accent);
+  box-shadow: 0 0 10px var(--accent-glow);
   margin: 1rem auto 0;
   border-radius: 2px;
 }
 
 .subtitle {
-  color: var(--text-secondary, #bdbdbd);
+  color: var(--text-secondary);
   font-size: var(--fs-base, 1rem);
   margin-top: 1rem;
   max-width: 600px;

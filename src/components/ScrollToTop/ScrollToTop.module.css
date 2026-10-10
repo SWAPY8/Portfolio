@@ -2,21 +2,23 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #5f2e1b, #8b4513);
+  background: var(--gradient-accent);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   z-index: 999;
-  box-shadow: 0 4px 15px rgba(95, 46, 27, 0.3);
-  border: none;
+  box-shadow: var(--neu-raised), 0 0 15px var(--accent-glow);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
 }
 
 .scrollToTop:hover {
-  box-shadow: 0 8px 25px rgba(95, 46, 27, 0.5);
+  box-shadow: var(--neu-raised-hover), 0 0 25px var(--accent-glow-strong);
+  transform: translateY(-3px);
 }

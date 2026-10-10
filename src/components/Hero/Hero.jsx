@@ -5,9 +5,9 @@ import resumePdf from '../../assets/Swapnil_CV.pdf';
 import styles from './Hero.module.css';
 
 const roles = [
-  'Java Developer',
-  'React Developer',
-  'AI Engineer',
+  'Full-Stack Developer',
+  'AI & ML Engineer',
+  'Java & Spring Boot Specialist',
 ];
 
 const TYPING_SPEED = 90;
@@ -92,15 +92,17 @@ const Hero = () => {
           </motion.div>
 
           <motion.p className={styles.description} variants={itemVariants}>
-            A passionate developer who loves crafting elegant, performant web
-            experiences. I turn complex problems into simple, beautiful and
-            intuitive solutions.
+            A passionate Full-Stack Developer & AI Engineer dedicated to crafting
+            scalable, intelligent web applications. Experienced in Java, Spring Boot,
+            React, Python, and Machine Learning integrations.
           </motion.p>
 
           <motion.div className={styles.ctaButtons} variants={itemVariants}>
             <motion.a
               href={resumePdf}
-              download="Swapnil_Gandhale_CV.pdf"
+              download="Swapnil_Gandhale_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.btnPrimary}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

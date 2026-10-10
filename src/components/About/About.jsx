@@ -5,29 +5,43 @@ import styles from "./About.module.css";
 
 const personalDetails = [
   { label: "Name", value: "Swapnil Gandhale" },
-  { label: "Profile", value: "Full-Stack Developer" },
+  { label: "Profile", value: "Full-Stack & AI Engineer" },
   { label: "Email", value: "swapnilofficial08@gmail.com" },
   { label: "Phone", value: "+91 9284850474" },
   { label: "Location", value: "Pune, India" },
-  { label: "Languages", value: "Marathi, English, Hindi" },
+  { label: "Education", value: "B.E. AI & DS (SPPU, 8.5 CGPA)" },
 ];
 
-const skills = [
-  { name: "Java", percent: 80 },
-  { name: "Spring Boot", percent: 85 },
-  { name: "React", percent: 85 },
-  { name: "JavaScript", percent: 85 },
-  { name: "MySQL", percent: 90 },
-  { name: "MongoDB", percent: 70 },
-  { name: "Git", percent: 85 },
-  { name: "REST APIs", percent: 90 },
+const skillCategories = [
+  {
+    title: "Programming Languages",
+    skills: ["Java", "Python", "JavaScript", "SQL", "HTML5", "CSS3"],
+  },
+  {
+    title: "Full-Stack & Cloud Frameworks",
+    skills: ["React.js", "Spring Boot", "Node.js", "RESTful APIs", "Flask", "FastAPI"],
+  },
+  {
+    title: "AI & Machine Learning",
+    skills: [
+      "PyTorch",
+      "Google Gemini API",
+      "OpenAI API",
+      "Prompt Engineering",
+      "Scikit-learn",
+    ],
+  },
+  {
+    title: "Databases & Developer Tools",
+    skills: ["MySQL", "MongoDB", "Git", "GitHub", "VS Code", "Swagger", "Render", "Kaggle"],
+  },
 ];
 
 const About = () => {
   return (
     <section id="about" className={styles.about}>
       <div className={styles.container}>
-        <SectionHeader title="About Me" />
+        <SectionHeader title="About Me" subtitle="My background, education & technical proficiencies" />
 
         <div className={styles.grid}>
           {/* Left Column — Profile Image */}
@@ -61,27 +75,17 @@ const About = () => {
             <h3 className={styles.col}>Who I Am</h3>
 
             <p className={styles.aboutText}>
-              I&apos;m a Java Full Stack Developer and AI & Data Science
-              graduate passionate about building scalable web applications and
-              intelligent solutions. My expertise includes developing responsive
-              front-end interfaces with React, robust back-end systems with
-              Spring Boot, and leveraging AI/ML techniques to solve real-world
-              problems. 
-              
+              I&apos;m a Full-Stack Developer and Artificial Intelligence & Data Science
+              engineer from SPPU (CGPA: 8.5/10). I specialize in engineering robust backend
+              architectures with <strong>Java &amp; Spring Boot</strong>, crafting reactive user
+              experiences in <strong>React</strong>, and developing scalable <strong>Python &amp; AI-driven SaaS solutions</strong>.
             </p>
 
             <p className={styles.aboutText}>
-               I enjoy transforming complex challenges into practical,
-              user-focused applications while continuously exploring emerging
-              technologies in software development, artificial intelligence, and
-              data science. Through projects involving full-stack development,
-              computer vision, IoT, and machine learning, I have gained hands-on
-              experience in creating innovative and impactful solutions.
-            </p>
-
-            <p className={styles.aboutText}>
-              Driven by curiosity and continuous learning, I strive to build technology
-              that is efficient, scalable, and meaningful.
+              From architecting intelligent recommendation systems like <strong>Agrosphere</strong> to
+              building LLM-powered mock interview platforms like <strong>HireMate AI</strong> and winning
+              the <strong>Intercollegiate Hackathon</strong> for assistive tech (NavEye), I turn complex
+              computational challenges into intuitive, high-impact products.
             </p>
 
             <div className={styles.detailsGrid}>
@@ -103,29 +107,28 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h3>Skills &amp; Expertise</h3>
+          <h3 className={styles.skillsTitle}>Technical Expertise</h3>
 
-          <div className={styles.skillsGrid}>
-            {skills.map((skill, index) => (
-              <div key={skill.name} className={styles.skillItem}>
-                <div className={styles.skillInfo}>
-                  <span className={styles.skillName}>{skill.name}</span>
-                  <span className={styles.skillPercent}>{skill.percent}%</span>
+          <div className={styles.categoriesGrid}>
+            {skillCategories.map((category, index) => (
+              <motion.div
+                key={category.title}
+                className={styles.categoryCard}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -4 }}
+              >
+                <h4 className={styles.categoryTitle}>{category.title}</h4>
+                <div className={styles.badgesWrapper}>
+                  {category.skills.map((skill) => (
+                    <span key={skill} className={styles.skillPill}>
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-                <div className={styles.skillTrack}>
-                  <motion.div
-                    className={styles.skillBar}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.percent}%` }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 1,
-                      delay: index * 0.1,
-                      ease: "easeOut",
-                    }}
-                  />
-                </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>

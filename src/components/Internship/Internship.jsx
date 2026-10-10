@@ -13,54 +13,69 @@ import willpowerCert from "../../assets/willpower_group.pdf";
 import codsoftCert from "../../assets/codesoft_certi.pdf";
 import neuaiCert from "../../assets/neuai_certi.jpg";
 
-const internships = [
+const experiences = [
   {
     id: 1,
-    role: "Business Development Intern",
-    company: "WillPower Group",
-    location: "Remote, India",
-    duration: "Nov 2022 - May 2023",
+    role: "AI Software Developer Intern",
+    company: "Infystent",
+    location: "Pune, India (On-site)",
+    duration: "May 2026",
+    isCurrent: true,
     description:
-      "Contributed to networking, business communication, and online engagement activities while developing strong interpersonal and professional communication skills.",
+      "Engineered end-to-end laundry management web platform covering customer, order, pickup, delivery, garment tracking and operational workflows with AI automation.",
     responsibilities: [
-      "Communicated with international business owners and professionals to support relationship-building initiatives.",
-      "Assisted in executing digital marketing and online branding strategies to improve outreach.",
+      "Developed an end-to-end laundry management web application covering customer, order, pickup, delivery, garment tracking and operational workflows.",
+      "Built and integrated responsive web interfaces with backend services and database-driven functionality.",
+      "Contributed to AI-powered features and workflow automation to improve operational efficiency and customer service.",
     ],
-    techUsed: ["Excel", "Google Workspace", "Canva"],
-    certificate: willpowerCert,
+    techUsed: ["Python", "React.js", "AI Automation", "REST APIs", "MySQL"],
   },
   {
     id: 2,
+    role: "Data Analyst Intern",
+    company: "NeuAi Labs",
+    location: "Remote, India",
+    duration: "Nov 2024 - Jan 2025",
+    description:
+      "Conducted exploratory data analysis, analytics modeling, and visual storytelling on large-scale datasets.",
+    responsibilities: [
+      "Performed exploratory data analysis on large-scale datasets using Python.",
+      "Created interactive dashboards and visualizations for stakeholder presentations.",
+      "Analyzed Uber ride trip data in Pune, performing EDA to identify demand patterns and peak hours.",
+    ],
+    techUsed: ["Python", "SQL", "Power BI", "Pandas"],
+    certificate: neuaiCert,
+  },
+  {
+    id: 3,
     role: "Web Development Intern",
     company: "CodSoft",
     location: "Remote, India",
     duration: "Aug 2024 - Sept 2024",
     description:
-      "Developed and maintained responsive web applications using modern frontend technologies. Collaborated with senior developers and participated in code reviews.",
+      "Developed and maintained responsive web applications using modern frontend technologies.",
     responsibilities: [
-      "Built responsive web pages using HTML5, CSS3 and JavaScript",
-      "Implemented interactive UI components including navigation bars, forms and modals",
-      "Gained experience in DOM manipulation and responsive design patterns",
-      "Practiced version control and collaborative coding through Git and GitHub",
+      "Built responsive web pages using HTML5, CSS3, and JavaScript.",
+      "Implemented interactive UI components including navigation bars, forms, and modals.",
+      "Practiced collaborative coding, code reviews, and Git workflows.",
     ],
     techUsed: ["HTML5", "CSS3", "JavaScript", "Git"],
     certificate: codsoftCert,
   },
   {
-    id: 3,
-    role: "Data Analyst Intern",
-    company: "NeuAi Labs",
-    location: "Remote",
-    duration: "Nov 2024 - Jan 2025",
+    id: 4,
+    role: "Business Development Intern",
+    company: "WillPower Group",
+    location: "Remote, India",
+    duration: "Nov 2022 - May 2023",
     description:
-      "Participated in data analysis projects involving exploratory data analysis, visualization and deriving actionable insights from large datasets.",
+      "Contributed to professional business communications, client outreach, and digital branding initiatives.",
     responsibilities: [
-      "Performed exploratory data analysis on large-scale datasets using Python",
-      "Created interactive dashboards and visualizations for stakeholder presentations",
-      "Applied these skills in a project analyzing Uber ride data in Pune, performing EDA to identify demand trends, peak timings and location-based insights.",
+      "Communicated with international business owners and professionals to support relationship-building initiatives.",
+      "Assisted in executing digital marketing and online branding strategies to improve outreach.",
     ],
-    techUsed: ["Python", "SQL", "Power BI"],
-    certificate: neuaiCert,
+    techUsed: ["Client Outreach", "Google Workspace", "Business Analytics"],
+    certificate: willpowerCert,
   },
 ];
 
@@ -68,16 +83,16 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
@@ -85,8 +100,8 @@ export default function Internship() {
   return (
     <section id="internship" className={styles.internship}>
       <SectionHeader
-        title="Internship Experience"
-        subtitle="Hands-on industry experience that shaped my professional journey"
+        title="Experience & Internships"
+        subtitle="Practical industry roles across AI development, data analytics, and web engineering"
       />
 
       <motion.div
@@ -96,65 +111,70 @@ export default function Internship() {
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
       >
-        {internships.map((internship) => (
+        {experiences.map((item) => (
           <motion.div
-            key={internship.id}
-            className={styles.internshipCard}
+            key={item.id}
+            className={`${styles.internshipCard} ${item.isCurrent ? styles.currentCard : ''}`}
             variants={cardVariants}
-            whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            whileHover={{ y: -6, transition: { duration: 0.25 } }}
           >
             <div className={styles.cardHeader}>
               <div className={styles.roleInfo}>
-                <h3 className={styles.role}>{internship.role}</h3>
-                <p className={styles.company}>{internship.company}</p>
+                <div className={styles.roleTitleRow}>
+                  <h3 className={styles.role}>{item.role}</h3>
+                  {item.isCurrent && (
+                    <span className={styles.featuredBadge}>Primary Role</span>
+                  )}
+                </div>
+                <p className={styles.company}>{item.company}</p>
               </div>
               <div className={styles.durationBadge}>
                 <FaCalendarAlt />
-                <span>{internship.duration}</span>
+                <span>{item.duration}</span>
               </div>
             </div>
 
             <div className={styles.meta}>
               <span className={styles.metaItem}>
                 <FaBriefcase />
-                {internship.company}
+                {item.company}
               </span>
               <span className={styles.metaItem}>
                 <FaMapMarkerAlt />
-                {internship.location}
+                {item.location}
               </span>
             </div>
 
-            <p className={styles.description}>{internship.description}</p>
+            <p className={styles.description}>{item.description}</p>
 
             <div className={styles.responsibilities}>
               <h4 className={styles.subheading}>Key Contributions</h4>
               <ul className={styles.responsibilityList}>
-                {internship.responsibilities.map((item, idx) => (
+                {item.responsibilities.map((resp, idx) => (
                   <li key={idx} className={styles.responsibilityItem}>
                     <span className={styles.bullet} />
-                    {item}
+                    {resp}
                   </li>
                 ))}
               </ul>
             </div>
 
             <div className={styles.techUsed}>
-              {internship.techUsed.map((tech) => (
+              {item.techUsed.map((tech) => (
                 <span key={tech} className={styles.techBadge}>
                   {tech}
                 </span>
               ))}
             </div>
 
-            {internship.certificate && (
+            {item.certificate && (
               <motion.a
-                href={internship.certificate}
+                href={item.certificate}
                 className={styles.certificateBtn}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <FaCertificate />
                 View Certificate

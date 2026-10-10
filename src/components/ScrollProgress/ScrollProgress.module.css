@@ -4,7 +4,10 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #5f2e1b, #8b4513, #a0522d);
+  background: var(--gradient-accent);
+  box-shadow: 0 0 10px var(--accent-glow);
   z-index: 9999;
   transform-origin: 0%;
+  transform: translateZ(0);
+  will-change: transform;
 }

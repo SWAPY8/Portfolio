@@ -1,29 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap');
 
 :root {
-  /* Colors */
-  --primary-bg: #020403;
-  --accent: #5F2E1B;
-  --accent-light: #8B4513;
-  --accent-hover: #a0522d;
-  --accent-glow: rgba(95, 46, 27, 0.4);
-  --accent-glow-strong: rgba(139, 69, 19, 0.6);
-  --secondary-accent: #1A2324;
-  --card-bg: #141413;
-  --card-bg-hover: #1c1c1b;
-  --card-border: rgba(95, 46, 27, 0.15);
-  --card-border-hover: rgba(95, 46, 27, 0.4);
-  --text-primary: #ffffff;
-  --text-secondary: #bdbdbd;
-  --text-muted: #787878;
-  --glass-bg: rgba(20, 20, 19, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --gradient-accent: linear-gradient(135deg, #5F2E1B, #8B4513);
-  --gradient-dark: linear-gradient(180deg, #020403 0%, #0a0b0a 50%, #020403 100%);
-  --gradient-card: linear-gradient(145deg, rgba(26, 35, 36, 0.3), rgba(20, 20, 19, 0.8));
-  --shadow-accent: 0 0 30px rgba(95, 46, 27, 0.2);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.6);
+  /* Dark Neumorphic Base Colors */
+  --primary-bg: #15181e;
+  --secondary-bg: #121419;
+  --card-bg: #191c23;
+  --card-bg-hover: #1c2028;
+  --card-surface: #191c23;
+  
+  /* Specular Rim / Borders */
+  --card-border: rgba(255, 255, 255, 0.05);
+  --card-border-hover: rgba(224, 122, 95, 0.35);
+
+  /* Accents */
+  --accent: #E07A5F;
+  --accent-light: #F4A261;
+  --accent-hover: #E76F51;
+  --accent-glow: rgba(224, 122, 95, 0.3);
+  --accent-glow-strong: rgba(224, 122, 95, 0.55);
+  --secondary-accent: #2A303C;
+  --badge-bg: rgba(224, 122, 95, 0.12);
+
+  /* Neumorphic Dual Shadows (Soft UI) */
+  /* Raised / Convex surface */
+  --neu-flat: 8px 8px 18px #0d0f13, -7px -7px 16px rgba(255, 255, 255, 0.045);
+  --neu-raised: 8px 8px 20px #0c0e12, -7px -7px 16px rgba(255, 255, 255, 0.045);
+  --neu-raised-hover: 12px 12px 26px #090b0e, -9px -9px 20px rgba(255, 255, 255, 0.07);
+  
+  /* Debossed / Inset surface (for inputs, active pressed tabs/buttons) */
+  --neu-inset: inset 4px 4px 8px #0d0f13, inset -3px -3px 7px rgba(255, 255, 255, 0.04);
+  --neu-inset-focus: inset 5px 5px 10px #0a0c0f, inset -4px -4px 8px rgba(224, 122, 95, 0.12);
+  
+  /* Small tactile badge / icon button */
+  --neu-badge: 4px 4px 10px #0d0f13, -3px -3px 8px rgba(255, 255, 255, 0.04);
+  --neu-badge-hover: 5px 5px 12px #0a0c0f, -4px -4px 10px rgba(255, 255, 255, 0.06);
+
+  /* Text */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  /* Glass & Gradients */
+  --glass-bg: rgba(25, 28, 35, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --gradient-accent: linear-gradient(135deg, #E07A5F 0%, #C85A3D 100%);
+  --gradient-dark: linear-gradient(180deg, #15181e 0%, #121419 100%);
+  --gradient-card: linear-gradient(145deg, #1b1e26 0%, #171920 100%);
+  --shadow-accent: 0 8px 24px rgba(224, 122, 95, 0.35);
+  --shadow-card: var(--neu-raised);
+  --shadow-card-hover: var(--neu-raised-hover);
+
+  --watermark-color: rgba(255, 255, 255, 0.03);
+  --particle-color: rgba(224, 122, 95, 0.25);
+  --nav-bg-scrolled: rgba(21, 24, 30, 0.88);
+  --nav-shadow-scrolled: 0 4px 24px rgba(0, 0, 0, 0.45);
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -53,10 +83,10 @@
   /* Layout */
   --max-width: 1200px;
   --nav-height: 70px;
-  --border-radius-sm: 6px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 20px;
-  --border-radius-xl: 30px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-xl: 36px;
   --border-radius-full: 50%;
 
   /* Transitions */
@@ -64,4 +94,63 @@
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;
   --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-theme: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ── Light Powder-Blue Neumorphic Theme (Matching Image 2 Reference) ── */
+[data-theme="light"] {
+  /* Powder Sky-Blue Neumorphic Base Colors */
+  --primary-bg: #D4E5F9;
+  --secondary-bg: #C6DBF4;
+  --card-bg: #D8E8FA;
+  --card-bg-hover: #E2EFFF;
+  --card-surface: #D8E8FA;
+
+  /* Specular Rim / Borders */
+  --card-border: rgba(255, 255, 255, 0.75);
+  --card-border-hover: rgba(29, 100, 236, 0.4);
+
+  /* Accents (Rich Cobalt Blue & Cyan) */
+  --accent: #1D64EC;
+  --accent-light: #38BDF8;
+  --accent-hover: #1551C6;
+  --accent-glow: rgba(29, 100, 236, 0.28);
+  --accent-glow-strong: rgba(29, 100, 236, 0.55);
+  --secondary-accent: #C8DCF5;
+  --badge-bg: rgba(29, 100, 236, 0.12);
+
+  /* Neumorphic Dual Shadows (Soft Sky-Blue Shadows + Pure White Highlights) */
+  /* Raised / Convex surface */
+  --neu-flat: 8px 8px 18px #9DBEE6, -7px -7px 16px #FFFFFF;
+  --neu-raised: 9px 9px 20px #97B9E2, -8px -8px 17px #FFFFFF;
+  --neu-raised-hover: 12px 12px 24px #8EB2DE, -10px -10px 20px #FFFFFF;
+
+  /* Debossed / Inset surface (for inputs, active pressed tabs/buttons) */
+  --neu-inset: inset 4px 4px 8px #9DBEE6, inset -4px -4px 8px #FFFFFF;
+  --neu-inset-focus: inset 5px 5px 9px #94B6DF, inset -5px -5px 9px #FFFFFF, 0 0 0 2px rgba(29, 100, 236, 0.35);
+
+  /* Small tactile badge / icon button */
+  --neu-badge: 4px 4px 9px #9DBEE6, -3px -3px 8px #FFFFFF;
+  --neu-badge-hover: 5px 5px 11px #94B6DF, -4px -4px 10px #FFFFFF;
+
+  /* Text (Deep navy slate for pristine contrast on sky blue) */
+  --text-primary: #0C2340;
+  --text-secondary: #2E4B6E;
+  --text-muted: #547399;
+
+  /* Glass & Nav Scrolled (Frosted Sky-Blue Glass, NOT Dark) */
+  --glass-bg: rgba(212, 229, 249, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --nav-bg-scrolled: rgba(212, 229, 249, 0.88);
+  --nav-shadow-scrolled: 0 6px 20px rgba(157, 190, 230, 0.45);
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(135deg, #1D64EC 0%, #0284C7 100%);
+  --gradient-dark: linear-gradient(180deg, #D4E5F9 0%, #C6DBF4 100%);
+  --gradient-card: linear-gradient(145deg, #E0EFFF 0%, #D0E3F8 100%);
+  --shadow-accent: 0 8px 24px rgba(29, 100, 236, 0.3);
+  --shadow-card: var(--neu-raised);
+  --shadow-card-hover: var(--neu-raised-hover);
+  --watermark-color: rgba(29, 100, 236, 0.05);
+  --particle-color: rgba(29, 100, 236, 0.22);
 }

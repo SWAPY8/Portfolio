@@ -1,6 +1,7 @@
 .footer {
-  padding: 2rem;
-  border-top: 1px solid rgba(95, 46, 27, 0.15);
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--secondary-bg);
   text-align: center;
 }
 
@@ -17,14 +18,15 @@
 }
 
 .socialLink {
-  color: var(--text-muted, #787878);
-  font-size: 1.2rem;
-  transition: color 0.3s;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  transition: all 0.3s;
   text-decoration: none;
 }
 
 .socialLink:hover {
-  color: #8b4513;
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .copyright {

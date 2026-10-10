@@ -10,8 +10,12 @@
   position: absolute;
   bottom: -10px;
   border-radius: 50%;
-  background: rgba(95, 46, 27, 0.3);
+  background: var(--particle-color, rgba(224, 122, 95, 0.25));
+  box-shadow: 0 0 8px var(--accent-glow);
   animation: particle-float linear infinite;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 @keyframes particle-float {

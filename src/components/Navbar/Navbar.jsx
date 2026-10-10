@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { FaSun, FaMoon } from 'react-icons/fa';
 import styles from './Navbar.module.css';
 
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Education', href: '#education' },
-  { label: 'Internship', href: '#internship' },
+  { label: 'Experience', href: '#internship' },
   { label: 'Projects', href: '#projects' },
   { label: 'Certifications', href: '#certifications' },
   { label: 'Contact', href: '#contact' },
@@ -17,10 +18,34 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('portfolio-theme') || 'light';
+  });
 
-  // Scroll detection
+  // Apply theme to document element
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
+  // Scroll detection with RAF throttling to eliminate scroll stutter
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 50;
+          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -89,14 +114,37 @@ const Navbar = () => {
           })}
         </ul>
 
-        {/* Mobile Toggle */}
-        <button
-          className={styles.menuToggle}
-          onClick={() => setMobileOpen((prev) => !prev)}
-          aria-label="Toggle navigation menu"
-        >
-          {mobileOpen ? <HiX /> : <HiMenuAlt3 />}
-        </button>
+        {/* Right Actions: Theme Mode Toggle & Mobile Menu */}
+        <div className={styles.navActions}>
+          <motion.button
+            className={styles.themeToggle}
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.92 }}
+            title={theme === 'dark' ? 'Switch to Light Neumorphic Mode' : 'Switch to Dark Neumorphic Mode'}
+          >
+            <span className={styles.themeIconWrapper}>
+              {theme === 'dark' ? (
+                <FaSun className={styles.sunIcon} />
+              ) : (
+                <FaMoon className={styles.moonIcon} />
+              )}
+            </span>
+            <span className={styles.themeLabel}>
+              {theme === 'dark' ? 'Light' : 'Dark'}
+            </span>
+          </motion.button>
+
+          {/* Mobile Toggle */}
+          <button
+            className={styles.menuToggle}
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileOpen ? <HiX /> : <HiMenuAlt3 />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Overlay */}

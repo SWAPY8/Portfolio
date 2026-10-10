@@ -287,7 +287,7 @@ const contactInfo = [
 const socialLinks = [
   {
     icon: <FaLinkedin />,
-    href: 'https://www.linkedin.com/in/swapnil-gandhale-206a46253',
+    href: 'https://www.linkedin.com/in/swapnil-gandhale',
     label: 'LinkedIn',
   },
   {
