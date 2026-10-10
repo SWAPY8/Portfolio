@@ -3,7 +3,7 @@ import { SiLeetcode } from 'react-icons/si';
 import styles from './Footer.module.css';
 
 const socialLinks = [
-  { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/swapnil-gandhale', label: 'LinkedIn' },
+  { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/swapnil-gandhale-206a46253/', label: 'LinkedIn' },
   { icon: <FaGithub />, href: 'https://github.com/SWAPY8', label: 'GitHub' },
   { icon: <SiLeetcode />, href: 'https://leetcode.com/u/6aFOFsFi6w/', label: 'LeetCode' },
 ];
